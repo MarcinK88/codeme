@@ -13,7 +13,7 @@ function mnozenie(x,y){
 
 return tablica;
 }
-var tablica = mnozenie(4,4);
+var tablica = mnozenie(3,3);
 console.log(tablica);
 
 
