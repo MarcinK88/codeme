@@ -1,13 +1,15 @@
-function isValidPesel(pesel) {
+function isValidPesel(pesel, sex, dateOfBirth) {
 
     let weight = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
     let sum = 0;
     let controlNumber = parseInt(pesel.substring(10, 11));
-
-    if (controlNumber === 0) {
+    let controlSex = parseInt(pesel.substring(9,10));
+    if (controlNumber === 0 || (sex == "Male" && controlSex%2 == 0) || (sex == "Female" && controlSex%2 != 0)
+    || (pesel.substring(0,6) != (dateOfBirth.getFullYear().toString().substring(2,4)+(("0"+(dateOfBirth.getMonth()+1)).slice(-2))+dateOfBirth.getDate()) )
+    ) {
         console.log("incorrect PESEL");
         return false;  
-    }
+    } 
 
         for (let i = 0; i < weight.length; i++) {
             sum += (parseInt(pesel.substring(i, i + 1)) * weight[i]);
@@ -54,10 +56,11 @@ function HumanV2(name, surname, dateOfBirth, sex, pesel, addressStreet, addressN
     };
 }
 
-var p1 = new HumanV2("Jan", "Kowalski", "2000-08-05", "Male", "97031003029", "Glowna", 1, "Gdansk");
+var p1 = new HumanV2("Anna", "Kowalska", "1997-03-10", "Female", "97031003029", "Glowna", 1, "Gdansk");
 
 HumanV2.prototype.setPesel = function (pesel) {
-        if (isValidPesel(pesel)) {
+ 
+    if (isValidPesel(pesel, this.sex, this.dateOfBirth)) {
             this.pesel = pesel;
         }
 }
@@ -68,3 +71,4 @@ p1.whereIFrom();
 p1.howOldAmI();
 p1.setPesel("97031003029");  //correct PESEL
 p1.setPesel("97031003021");  //inorrect PESEL
+
