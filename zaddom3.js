@@ -54,13 +54,14 @@ function HumanV2(name, surname, dateOfBirth, sex, pesel, addressStreet, addressN
     };
 }
 
+var p1 = new HumanV2("Jan", "Kowalski", "2000-08-05", "Male", "97031003029", "Glowna", 1, "Gdansk");
+
 HumanV2.prototype.setPesel = function (pesel) {
         if (isValidPesel(pesel)) {
             this.pesel = pesel;
         }
 }
 
-var p1 = new HumanV2("Jan", "Kowalski", "2000-08-05", "Male", "97031003029", "Glowna", 1, "Gdansk");
 
 p1.introduce();
 p1.whereIFrom();
