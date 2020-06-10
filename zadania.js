@@ -26,5 +26,15 @@ function fajnaFunc(...rest) {
     return table;
 }
 
-console.log(fajnaFunc(1, 2, 3, 4, 5, 6, 7, 8));
+// console.log(fajnaFunc(1, 2, 3, 4, 5, 6, 7, 8));
 
+function rekur(n) {
+
+    if (n >= 0 && n < 3) {
+        return n + 1;
+    } else {
+        return rekur(n - 1) * n + rekur(n - 2) / rekur(n - 3);
+    }
+}
+
+console.log(rekur(2));
