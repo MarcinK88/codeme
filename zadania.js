@@ -72,7 +72,8 @@ class Alert {
 
     wyswietlAlert(id, tekst, sec) {
         this.handler[id] = setTimeout((function () {
-            console.log(tekst);
+            // console.log(tekst);
+            alert(tekst);
         }), sec * 1000);
     }
 
