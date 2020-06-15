@@ -19,3 +19,16 @@ var handler = setInterval(function () {
 }, 1000)
 
 document.body.appendChild(div);
+
+
+for(var i = 1; i <= 5; i++) {
+    var par = document.createElement("p");
+    par.innerHTML = "paragraf " + i;
+    document.body.appendChild(par);
+}
+
+var paragraphs = document.querySelectorAll("p");
+
+paragraphs[0].style.backgroundColor = "green";
+paragraphs[2].style.backgroundColor = "blue";
+paragraphs[paragraphs.length-1].style.backgroundColor = "yellow";
