@@ -1,6 +1,6 @@
 for(var i = 1; i <= 5; i++) {
     var button = document.createElement("BUTTON");
-    button.innerHTML = "button " + i;
+    button.innerText = "button " + i;
     document.body.appendChild(button);
 }
 
@@ -32,3 +32,14 @@ var paragraphs = document.querySelectorAll("p");
 paragraphs[0].style.backgroundColor = "green";
 paragraphs[2].style.backgroundColor = "blue";
 paragraphs[paragraphs.length-1].style.backgroundColor = "yellow";
+
+var input = document.createElement("input");
+input.setAttribute("type", "text");
+
+document.body.appendChild(input);
+
+function blur(event) {
+    alert(event.target.value);
+}
+
+input.addEventListener('blur',blur);;
