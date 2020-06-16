@@ -1,12 +1,16 @@
-let ileButtonow = 5;
+let ileButtonow = 9;
+
+var div = document.createElement("div");
 
 for(var i = 0; i < ileButtonow; i++) {
     var button = document.createElement("BUTTON");
     button.innerText = "button " + i;
     button.dataset.count = 0;
     button.id = i;
-    document.body.appendChild(button);
+    div.appendChild(button);
 }
+document.body.appendChild(div);
+
 
 var buttons = document.querySelectorAll("BUTTON");
 
@@ -24,7 +28,13 @@ for (let i = 0; i < buttons.length; i++){
 
 
 sumClick.innerText = 0;
-document.body.appendChild(sumClick);
+var sumClickLabel = document.createElement("label");
+sumClickLabel.innerText = "Suma wszystkich kliknięć: ";
+var div2 = document.createElement("div");
+
+div2.appendChild(sumClickLabel);
+div2.appendChild(sumClick);
+document.body.appendChild(div2);
 
 function onClick(event) {
     event.target.dataset.count++;
